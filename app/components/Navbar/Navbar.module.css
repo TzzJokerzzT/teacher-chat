@@ -1,0 +1,17 @@
+.navbar_container {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--background-color-main-);
+  box-shadow: var(--border-shadow);
+  & a {
+    margin: auto 0.5rem;
+  }
+  & .logo {
+    width: 4rem;
+    height: 4rem;
+    margin-left: 2rem;
+  }
+}

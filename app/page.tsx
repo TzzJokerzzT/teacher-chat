@@ -1,14 +1,10 @@
-import Link from "next/link";
 import styles from "./page.module.css";
-import Button from "@mui/material/Button";
+import InitialPage from "./view/InitialPage";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <h1>Hola Mundo</h1>
-      <Link href="/login">
-        <Button>Login</Button>
-      </Link>
+      <InitialPage />
     </main>
   );
 }

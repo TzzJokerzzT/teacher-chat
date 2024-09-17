@@ -36,3 +36,13 @@ export const inputFields = [
     label: "Confirmar constraseña",
   },
 ];
+
+export const checkboxData = [
+  {
+    content: "Entiendo y acepto los términos y condiciones.",
+  },
+  {
+    content:
+      "Quiero recibir notificaciones al correo sobre actualizaciones, promociones e información de los desarrolladores.",
+  },
+];

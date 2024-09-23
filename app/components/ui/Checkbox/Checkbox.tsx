@@ -79,10 +79,10 @@ interface CheckboxProps {
 
 // Usage
 
-export default function MainCheckbox() {
+export default function MainCheckbox({ label }: CheckboxProps) {
   return (
     <div>
-      <BpCheckbox />
+      <BpCheckbox label={label} />
     </div>
   );
 }

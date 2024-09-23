@@ -1,8 +1,5 @@
-import RegisterPage from "../view/RegisterPage";
-
+import RegisterPage from "@/view/RegisterPage";
 
 export default function Page() {
-  return (
-    <RegisterPage />
-  );
+  return <RegisterPage />;
 }

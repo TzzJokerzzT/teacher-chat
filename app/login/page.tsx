@@ -1,23 +1,5 @@
-import { Button, TextField } from "@mui/material";
+import LoginPage from "@/view/LoginPage";
 
 export default function Page() {
-  return (
-    <form>
-      <TextField
-        id="standar-basic"
-        label="Email"
-        variant="filled"
-        color="success"
-        type="email"
-      />
-      <TextField
-        id="standar-basic"
-        label="Password"
-        variant="filled"
-        color="success"
-        type="password"
-      />
-      <Button type="submit">Submit</Button>
-    </form>
-  );
+  return <LoginPage />;
 }

@@ -1,8 +1,8 @@
-import MainButton from "../Button/Button";
-import Input from "../Input/Input";
-import { checkboxData, inputFields } from "../../utils/dataForm";
-import styles from "./Form.module.css";
-import MainCheckbox from "../Checkbox/Checkbox";
+import MainButton from "@/ui/Button/Button";
+import Input from "@/ui/Input/Input";
+import { checkboxData, inputFields } from "@/utils/dataForm";
+import styles from "./FormRegister.module.css";
+import MainCheckbox from "@/ui/Checkbox/Checkbox";
 
 export default function Form() {
   return (

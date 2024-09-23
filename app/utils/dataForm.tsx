@@ -39,7 +39,7 @@ export const inputFields = [
 
 export const checkboxData = [
   {
-    content: "Entiendo y acepto los términos y condiciones.",
+    content: "Entiendo y acepto los términos y condiciones. Obligatorio",
   },
   {
     content:

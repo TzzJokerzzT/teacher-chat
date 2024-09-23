@@ -7,6 +7,7 @@ export interface StyledButtonProps {
   txtColor?: string;
   variant?: "text" | "contained" | "outlined";
   disableRipple?: boolean;
+  type?: "button" | "reset" | "submit";
 }
 
 export interface StyledInputProps {
@@ -15,4 +16,5 @@ export interface StyledInputProps {
   type: string;
   id: string;
   label: string;
+  width?: string;
 }

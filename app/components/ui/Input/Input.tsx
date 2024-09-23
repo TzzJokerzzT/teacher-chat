@@ -1,11 +1,11 @@
 "use client";
 
-import { StyledInputProps } from "@/app/types/types.env";
+import { StyledInputProps } from "@/types/types.env";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
 
-const InputField = styled(TextField)({
-  width: "90%",
+const InputField = styled(TextField)<StyledInputProps>(({ width }) => ({
+  width: width || "90%",
   margin: "1rem 0",
   "& label.Mui-focused": {
     color: "#A0AAB4",
@@ -24,7 +24,7 @@ const InputField = styled(TextField)({
       borderColor: "#6F7E8C",
     },
   },
-});
+}));
 
 export default function Input({
   helperText,
@@ -32,6 +32,7 @@ export default function Input({
   id,
   label,
   required,
+  width,
 }: StyledInputProps) {
   return (
     <InputField
@@ -40,6 +41,7 @@ export default function Input({
       type={type}
       id={id}
       label={label}
+      width={width}
     />
   );
 }

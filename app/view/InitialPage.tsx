@@ -1,7 +1,7 @@
 import Link from "next/link";
 import MainButton from "@/ui/Button/Button";
 import styles from "./InitialPage.module.css";
-import Navbar from "@/components/ui/";
+import Navbar from "@/components/ui/Navbar/Navbar";
 
 export default function InitialPage() {
   return (

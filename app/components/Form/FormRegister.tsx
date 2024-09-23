@@ -1,12 +1,15 @@
+"use client";
+
 import MainButton from "@/ui/Button/Button";
 import Input from "@/ui/Input/Input";
 import { checkboxData, inputFields } from "@/utils/dataForm";
 import styles from "./FormRegister.module.css";
 import MainCheckbox from "@/ui/Checkbox/Checkbox";
+import Box from "@mui/material/Box";
 
 export default function Form() {
   return (
-    <form className={styles.form_container}>
+    <form onSubmit={() => alert("Hola")} className={styles.form_container}>
       {inputFields.map(({ required, helperText, type, id, label }, index) => {
         return (
           <Input
@@ -16,6 +19,7 @@ export default function Form() {
             type={type}
             id={id}
             label={label}
+            width="50rem"
           />
         );
       })}
@@ -35,7 +39,7 @@ export default function Form() {
         >
           Cancel
         </MainButton>
-        <MainButton width="10rem" height="5rem">
+        <MainButton width="10rem" height="5rem" type="submit">
           Next
         </MainButton>
       </div>

@@ -3,7 +3,7 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
-import { StyledButtonProps } from "@/app/types/types.env";
+import { StyledButtonProps } from "@/types/types.env";
 
 const StyledButton = styled(Button)<StyledButtonProps>(
   ({ width, height, bgColor, brdColor, txtColor }) => ({
@@ -53,6 +53,7 @@ export default function MainButton({
   bgColor,
   brdColor,
   txtColor,
+  type,
 }: StyledButtonProps) {
   return (
     <StyledButton
@@ -63,6 +64,7 @@ export default function MainButton({
       txtColor={txtColor}
       variant="contained"
       disableRipple
+      type={type}
     >
       {children}
     </StyledButton>

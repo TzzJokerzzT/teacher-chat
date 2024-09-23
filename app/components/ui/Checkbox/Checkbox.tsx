@@ -58,23 +58,25 @@ const StyledCheckedIcon = styled(StyledIcon)({
 });
 
 // Inspired by blueprintjs
-const BpCheckbox = (props: CheckboxProps) => {
+const BpCheckbox = ({ label, ...props }: CheckboxProps) => {
   return (
-    <Checkbox
-      sx={{ "&:hover": { bgcolor: "transparent" } }}
-      disableRipple
-      color="default"
-      checkedIcon={<StyledCheckedIcon />}
-      icon={<StyledIcon />}
-      inputProps={{ "aria-label": "Checkbox demo" }}
-      label={props.label}
-      {...props}
-    />
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <Checkbox
+        sx={{ "&:hover": { bgcolor: "transparent" } }}
+        disableRipple
+        color="default"
+        checkedIcon={<StyledCheckedIcon />}
+        icon={<StyledIcon />}
+        inputProps={{ "aria-label": label }}
+        {...props}
+      />
+      {label && <span style={{ marginLeft: '8px' }}>{label}</span>}
+    </div>
   );
 };
 
-interface CheckboxProps {
-  label: string;
+interface CheckboxProps extends Omit<React.ComponentProps<typeof Checkbox>, 'label'> {
+  label?: string;
 }
 
 // Usage

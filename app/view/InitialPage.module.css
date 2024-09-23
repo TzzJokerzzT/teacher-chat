@@ -12,14 +12,14 @@
     align-items: center;
     justify-content: space-evenly;
     height: 50%;
-    border: 0.2rem solid var(--border-color);
+    border: .2rem solid var(--border-color);
     box-shadow: var(--border-shadow);
-    border-radius: 0.5rem;
+    border-radius: .5rem;
     & div p {
       text-align: center;
     }
     & .btn_container a {
-      margin: auto 0.5rem;
+      margin: auto .5rem;
     }
   }
 }

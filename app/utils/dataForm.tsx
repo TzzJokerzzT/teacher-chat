@@ -33,7 +33,7 @@ export const inputFields = [
     helperText: "",
     type: "password",
     id: "password",
-    label: "Confirmar constraseña",
+    label: "Confirmar contraseña",
   },
 ];
 

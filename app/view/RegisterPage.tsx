@@ -1,6 +1,6 @@
-import Form from "../components/Form/FormRegister";
-import Navbar from "../components/ui/Navbar/Navbar";
-import styles from "./RegisterPage.module.css";
+import Form from "@/components/Form/Register/FormRegister";
+import Navbar from "@/ui/Navbar/Navbar";
+import styles from "@/styles/RegisterPage.module.css";
 
 export default function RegisterPage() {
   return (

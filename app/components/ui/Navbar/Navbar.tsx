@@ -4,7 +4,7 @@ import MainButton from "../Button/Button";
 import Link from "next/link";
 
 export default function Navbar() {
-  //Este arregle es para generar el texto de cada uno de los botones del navbar
+  //Este arreglo es para generar el texto de cada uno de los botones del navbar
   const buttonContent = [
     "Login",
     "Registro",

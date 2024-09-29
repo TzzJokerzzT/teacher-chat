@@ -1,8 +1,5 @@
-"use client";
-
-import * as React from "react";
 import { styled } from "@mui/material/styles";
-import Checkbox, { CheckboxProps } from "@mui/material/Checkbox";
+import Checkbox from "@mui/material/Checkbox";
 
 const StyledIcon = styled("span")(({ theme }) => ({
   borderRadius: 3,
@@ -60,7 +57,7 @@ const StyledCheckedIcon = styled(StyledIcon)({
 // Inspired by blueprintjs
 const BpCheckbox = ({ label, ...props }: CheckboxProps) => {
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
+    <div style={{ display: "flex", alignItems: "center" }}>
       <Checkbox
         sx={{ "&:hover": { bgcolor: "transparent" } }}
         disableRipple
@@ -70,12 +67,13 @@ const BpCheckbox = ({ label, ...props }: CheckboxProps) => {
         inputProps={{ "aria-label": label }}
         {...props}
       />
-      {label && <span style={{ marginLeft: '8px' }}>{label}</span>}
+      {label && <span style={{ marginLeft: "8px" }}>{label}</span>}
     </div>
   );
 };
 
-interface CheckboxProps extends Omit<React.ComponentProps<typeof Checkbox>, 'label'> {
+interface CheckboxProps
+  extends Omit<React.ComponentProps<typeof Checkbox>, "label"> {
   label?: string;
 }
 

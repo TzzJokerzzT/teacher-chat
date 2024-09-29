@@ -46,3 +46,5 @@ export const checkboxData = [
       "Quiero recibir notificaciones al correo sobre actualizaciones, promociones e información de los desarrolladores.",
   },
 ];
+
+export const urlRegister = "https://dev.timbax.peryloth.com/api/register";

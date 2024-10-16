@@ -8,32 +8,51 @@
   grid-template-areas: "image form";
   -webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  & a {
+    text-decoration: none;
+    color: var(--primary);
+    &:active {
+      color: var(--secondary);
+    }
+    &:hover,
+    &:focus {
+      color: var(--secondary);
+    }
+  }
   & img {
     height: 93vh;
-    width: 20rem;
+    width: 31.25rem;
     object-fit: cover;
   }
-  & p {
-    margin-top: 2rem;
-  }
+
   & .form_container {
     height: 93vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    & form {
+      height: 30rem;
+      width: 40rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 0.0625rem solid var(--black);
+      border-radius: 0.875rem;
+      box-shadow: var(--border-shadow);
+    }
   }
   & .btn_container {
     width: 90%;
     display: flex;
     justify-content: center;
     margin-top: 1rem;
-  }
-  & .chkbox_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 70%;
+    margin-bottom: 1rem;
+    & button:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
   }
 }
 

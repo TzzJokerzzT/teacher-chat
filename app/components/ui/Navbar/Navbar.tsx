@@ -2,15 +2,17 @@ import Image from "next/image";
 import styles from "./Navbar.module.css";
 import MainButton from "../Button/Button";
 import Link from "next/link";
+import { NavbarProps } from "@/types/types.env";
 
-export default function Navbar() {
-  //Este arreglo es para generar el texto de cada uno de los botones del navbar
-  const buttonContent = [
-    "Login",
-    "Registro",
-    "Acerca de",
-    "Suscribirse - $5 USD",
-  ];
+export default function Navbar({
+  width,
+  txtColor,
+  bgColor,
+  brdColor,
+  bgColorHover,
+  brdColorHover,
+  routes,
+}: NavbarProps) {
   return (
     <nav className={styles.navbar_container}>
       <Image
@@ -21,18 +23,23 @@ export default function Navbar() {
         alt="Logo"
       />
       <div>
-        {buttonContent.map((text, index) => (
-          <Link key={index} href="./">
-            <MainButton
-              width={index >= 0 && index <= 2 ? "7rem" : "12rem"}
-              txtColor={index >= 0 && index <= 2 ? "black" : ""}
-              brdColor={index >= 0 && index <= 2 ? "white" : ""}
-              bgColor={index >= 0 && index <= 2 ? "white" : ""}
-            >
-              {text}
-            </MainButton>
-          </Link>
-        ))}
+        {routes.map(({ path, name }, index) => {
+          const isSuscribe = path === "/suscribe";
+          return (
+            <Link key={index} href={path}>
+              <MainButton
+                width={isSuscribe ? width : "9rem"}
+                txtColor={txtColor}
+                brdColor={brdColor}
+                bgColor={bgColor}
+                bgColorHover={bgColorHover}
+                brdColorHover={brdColorHover}
+              >
+                {name}
+              </MainButton>
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );

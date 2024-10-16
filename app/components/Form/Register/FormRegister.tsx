@@ -8,7 +8,10 @@ import styles from "./FormRegister.module.css";
 import MainCheckbox from "@/ui/Checkbox/Checkbox";
 import { useState } from "react";
 import usePostRegister from "@/hook/useFetchRegister";
-import { useShowPassword } from "@/Store/TeacherStore";
+import { useTeacherProvider } from "@/Store/TeacherStore";
+import { useRouter } from "next/navigation";
+import Loading from "@/components/ui/Loading/Loading";
+import Link from "next/link";
 
 export default function Form() {
   //State
@@ -16,22 +19,26 @@ export default function Form() {
     name: "",
     lastName: "",
     email: "",
-    phone: "",
+    phoneNumber: "",
     password: "",
     confirmPassword: "",
     // terms: false,
     // privacy: false,
   });
+
+  //Router
+  const router = useRouter();
+
   //Store
   const {
     showPassword,
     showConfirmPassword,
     togglePasswordVisibility,
     toggleConfirmsPasswordVisibility,
-  } = useShowPassword();
+  } = useTeacherProvider();
 
   //Custom Hook
-  const { postForm, loading, error, user } = usePostRegister(urlRegister);
+  const { postForm, isLoading, error, user } = usePostRegister(urlRegister);
 
   //Hanlders Functions
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,16 +47,20 @@ export default function Form() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await postForm(registerData);
+    const response = await postForm(registerData);
     setRegisterData({
       ...registerData,
       name: "",
       lastName: "",
       email: "",
-      phone: "",
+      phoneNumber: "",
       password: "",
       confirmPassword: "",
     });
+    // response?.success ? router.push("/login")
+    if (response?.success) {
+      router.push("/login");
+    }
   };
 
   return (
@@ -67,71 +78,71 @@ export default function Form() {
         Nombre
       </Input>
       <Input
-        value={registerData.lastName}
-        onChange={handleChange}
         required
         helperText="Ingresa tus apellidos"
-        type="text"
         id="lastName"
         label="Apellidos"
+        type="text"
+        onChange={handleChange}
+        value={registerData.lastName}
         width="40rem"
       >
         Apellidos
       </Input>
       <Input
-        value={registerData.email}
-        onChange={handleChange}
         required
-        type="email"
         id="email"
         label="Correo electronico"
+        type="email"
+        onChange={handleChange}
+        value={registerData.email}
         width="40rem"
       >
         Correo electronico
       </Input>
       <Input
-        value={registerData.phone}
-        onChange={handleChange}
         required
-        type="text"
-        id="phone"
+        id="phoneNumber"
         label="Telefono"
+        type="text"
+        onChange={handleChange}
+        value={registerData.phoneNumber}
         width="40rem"
       >
         Telefono
       </Input>
       <Input
-        value={registerData.password}
-        onChange={handleChange}
         required
-        helperText="Ingresa tu constraseña"
-        type={showPassword ? "text" : "password"}
         endAdorment={
           <InputAdornments
             onClick={togglePasswordVisibility}
             showIcon={showPassword}
           />
         }
+        helperText="Ingresa tu constraseña"
         id="password"
         label="Ingrese su contraseña"
+        type={showPassword ? "text" : "password"}
+        onChange={handleChange}
+        value={registerData.password}
         width="40rem"
       >
         Ingrese su contraseña
       </Input>
       <Input
-        value={registerData.confirmPassword}
-        onChange={handleChange}
         required
-        helperText="Confirme tu constraseña"
-        type={showConfirmPassword ? "text" : "password"}
         endAdorment={
           <InputAdornments
             onClick={toggleConfirmsPasswordVisibility}
             showIcon={showConfirmPassword}
           />
         }
+        helperText="Confirme tu constraseña"
         id="confirmPassword"
+        type={showConfirmPassword ? "text" : "password"}
         label="Confirme su contraseña"
+        onChange={handleChange}
+        value={registerData.confirmPassword}
         width="40rem"
       >
         Confirme su contraseña
@@ -147,28 +158,23 @@ export default function Form() {
         <MainButton
           width="10rem"
           height="3rem"
-          bgColor="white"
-          txtColor="#9138D7"
-        >
-          Cancel
-        </MainButton>
-        <MainButton
-          width="10rem"
-          height="3rem"
-          disabled
+          disabled={isLoading}
           type="submit"
+          txtColor="#eff0f3"
+          bgColor="#3740ec"
+          brdColor="#3740ec"
+          bgColorHover="#39409b"
+          brdColorHover="#39409b"
         >
-          {loading ? "Registering..." : "Register"}
+          {isLoading ? <Loading /> : "Register"}
         </MainButton>
+        <p>
+          ¿Ya tienes una cuenta?{" "}
+          <Link href="/login" className={styles.link}>
+            <strong>Inicia sesión</strong>
+          </Link>
+        </p>
       </div>
-      {error && <p>{error}</p>}
-      {user && (
-        <div>
-          <h3>Welcome, {user.name}!</h3>
-          <p>Email: {user.email}</p>
-          <p>ID: {user.id}</p>
-        </div>
-      )}
     </form>
   );
 }

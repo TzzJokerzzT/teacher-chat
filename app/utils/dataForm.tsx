@@ -48,3 +48,4 @@ export const checkboxData = [
 ];
 
 export const urlRegister = "https://dev.timbax.peryloth.com/api/register";
+export const urlLogin = "https://dev.timbax.peryloth.com/api/login";

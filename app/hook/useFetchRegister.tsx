@@ -2,12 +2,12 @@ import { FormRegisterProps, PostResponse, User } from "@/types/types.env";
 import { useState } from "react";
 
 const usePostRegister = (url: string) => {
-  const [loading, setLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [user, setUser] = useState<User | null>(null);
 
   const postForm = async (registerData: FormRegisterProps) => {
-    setLoading(true);
+    setIsLoading(true);
     setError(null);
 
     try {
@@ -28,17 +28,20 @@ const usePostRegister = (url: string) => {
         } else {
           setError(`Error ${response.status}: ${response.statusText}`);
         }
-        return;
+        return { success: false, message: errorData.error };
       }
+
       const data: PostResponse = await response.json();
       setUser(data.user);
+
+      return { success: true, message: "Register succesful" };
     } catch (error) {
       setError("Error during registration");
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
-  return { postForm, loading, error, user };
+  return { postForm, isLoading, error, user };
 };
 
 export default usePostRegister;

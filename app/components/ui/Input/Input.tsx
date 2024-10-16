@@ -9,29 +9,35 @@ import {
   OutlinedInput,
 } from "@mui/material";
 
-const CustomFormControl = styled(FormControl)<{ width: string | undefined}>(
+const CustomFormControl = styled(FormControl)<{ width: string | undefined }>(
   ({ width }) => ({
     width: width || "90%",
-    margin: "1rem 0",
+    margin: "0.5rem 0",
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        borderColor: "gray", // Color del borde cuando no está en foco
+        borderColor: "gray",
       },
       "&:hover fieldset": {
-        borderColor: "blue", // Color del borde cuando el mouse está sobre el input
+        borderColor: "blue",
       },
       "&.Mui-focused fieldset": {
-        borderColor: "#025a97", // Color del borde cuando está en foco
+        borderColor: "#025a97",
       },
     },
   })
 );
 
 const CustomLabel = styled(InputLabel)(({ theme }) => ({
-  color: "gray", // Color inicial del label
+  color: "gray",
   "&.Mui-focused": {
     color: "#025a97",
   },
+}));
+
+const CustomHelperText = styled(FormHelperText)(({ theme }) => ({
+  color: "gray",
+  margin: "0.5rem 0",
+  height: "1rem",
 }));
 
 export default function Input({
@@ -44,9 +50,8 @@ export default function Input({
   width,
   children,
   endAdorment,
-  helperText
+  helperText,
 }: StyledInputProps) {
-
   return (
     <CustomFormControl variant="outlined" width={width}>
       <CustomLabel htmlFor={id}>{children}</CustomLabel>
@@ -59,7 +64,7 @@ export default function Input({
         label={label}
         required={required}
       />
-      <FormHelperText>{helperText}</FormHelperText>
+      <CustomHelperText>{helperText}</CustomHelperText>
     </CustomFormControl>
   );
 }

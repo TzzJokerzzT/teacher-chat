@@ -1,37 +1,50 @@
-import { FormRegisterProps, PostResponse } from "@/types/types.env";
+import { Route } from "@/types/types.env";
 
-export async function POST(request: Request) => {
-    const data: FormRegisterProps = await request.json()
+export const homeRoutes: Route[] = [
+  {
+    path: "/login",
+    name: "Iniciar Sesión",
+  },
+  {
+    path: "/register",
+    name: "Registro",
+  },
+  {
+    path: "/about",
+    name: "Acerca de",
+  },
+  {
+    path: "/suscribe",
+    name: "Suscribete - $5 USD",
+  },
+];
 
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)  
-        })
-        const result = await response.json()
+export const loginRoutes: Route[] = [
+  {
+    path: "/register",
+    name: "Registro",
+  },
+  {
+    path: "/about",
+    name: "Acerca de",
+  },
+  {
+    path: "/suscribe",
+    name: "Suscribete - $5 USD",
+  },
+];
 
-        if (!response.ok && result.status === "success") {
-            const response: PostResponse = {
-              success: true,
-              message: result.message,
-              user: result.user,
-            };
-      
-            return NextResponse.json(response);
-          } else {
-            throw new Error(result.message || "Something went wrong!");
-          }
-
-    } catch (error) {
-        const errorMessage = (error as Error).message || "Something went wrong!";
-    const errorResponse: PostResponse = {
-      success: false,
-      message: errorMessage,
-    };
-
-    return NextResponse.json(errorResponse, { status: 500 });
-    }
-}
+export const registerRoutes: Route[] = [
+  {
+    path: "/login",
+    name: "Iniciar Sesión",
+  },
+  {
+    path: "/about",
+    name: "Acerca de",
+  },
+  {
+    path: "/suscribe",
+    name: "Suscribete - $5 USD",
+  },
+];

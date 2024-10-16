@@ -1,11 +1,19 @@
-"use client"
+"use client";
 
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import { StyledButtonProps } from "@/types/types.env";
 
 const StyledButton = styled(Button)<StyledButtonProps>(
-  ({ width, height, bgColor, brdColor, txtColor }) => ({
+  ({
+    width,
+    height,
+    bgColor,
+    brdColor,
+    txtColor,
+    bgColorHover,
+    brdColorHover,
+  }) => ({
     width: width || "7rem",
     height: height || "3rem",
     textTransform: "none",
@@ -30,17 +38,17 @@ const StyledButton = styled(Button)<StyledButtonProps>(
       '"Segoe UI Symbol"',
     ].join(","),
     "&:hover": {
-      backgroundColor: bgColor || "#871395",
-      borderColor: brdColor || "#871395",
+      backgroundColor: bgColorHover || "#871395",
+      borderColor: brdColorHover || "#871395",
       boxShadow: "none",
     },
     transition:
       "transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease",
     "&:active": {
       boxShadow: "none",
-      backgroundColor: bgColor || "#0062cc",
-      borderColor: brdColor || "#005cbf",
-      transform: "translateY(.2rem)",
+      backgroundColor: bgColorHover || "#0062cc",
+      borderColor: bgColorHover || "#005cbf",
+      transform: "translateY(.1rem)",
     },
   })
 );
@@ -53,6 +61,9 @@ export default function MainButton({
   brdColor,
   txtColor,
   type,
+  disabled,
+  bgColorHover,
+  brdColorHover,
 }: StyledButtonProps) {
   return (
     <StyledButton
@@ -63,7 +74,10 @@ export default function MainButton({
       txtColor={txtColor}
       variant="contained"
       disableRipple
+      disabled={disabled}
       type={type}
+      bgColorHover={bgColorHover}
+      brdColorHover={brdColorHover}
     >
       {children}
     </StyledButton>

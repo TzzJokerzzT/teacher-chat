@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useLogin } from "@/hook/useLogin";
 import { urlLogin } from "@/utils/dataForm";
-import { ForwardIcon, WrongIcon } from "@/utils/Icons";
+import { WrongIcon } from "@/utils/Icons";
 import { useRouter } from "next/navigation";
 import ModalBox from "@/components/ui/Modal/Modal";
 import { useTeacherProvider } from "@/Store/TeacherStore";
@@ -117,25 +117,19 @@ export default function FormLogin() {
               <MainButton
                 disabled={isLoading}
                 bgColor="#3740EC"
-                brdColor="none"
+                brdColor="transparent"
                 bgColorHover="#39409B"
                 brdColorHover="transparent"
                 type="submit"
-                width="26rem"
+                width="14.0625rem"
               >
-                {isLoading ? (
-                  <Loading />
-                ) : (
-                  <>
-                    Login <ForwardIcon />
-                  </>
-                )}
+                {isLoading ? <Loading /> : "Login"}
               </MainButton>
             </div>
             <p>
               ¿Nuevo en nuestra app?{" "}
               <Link href="./register">
-                <strong>REGISTRATE AQUI</strong>
+                <strong>Registrate Aqui</strong>
               </Link>
             </p>
             <ModalBox

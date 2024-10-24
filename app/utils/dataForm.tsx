@@ -49,3 +49,5 @@ export const checkboxData = [
 
 export const urlRegister = "https://dev.timbax.peryloth.com/api/register";
 export const urlLogin = "https://dev.timbax.peryloth.com/api/login";
+
+//Cambiar width del boton del login a 225px, modifcar el height del formulario de registro...EVITAR QUE SALGA EL SCROOL

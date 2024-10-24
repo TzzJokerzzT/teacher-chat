@@ -73,7 +73,7 @@ export default function Form() {
         type="text"
         id="name"
         label="Nombre"
-        width="40rem"
+        width="30rem"
       >
         Nombre
       </Input>
@@ -85,7 +85,7 @@ export default function Form() {
         type="text"
         onChange={handleChange}
         value={registerData.lastName}
-        width="40rem"
+        width="30rem"
       >
         Apellidos
       </Input>
@@ -96,7 +96,7 @@ export default function Form() {
         type="email"
         onChange={handleChange}
         value={registerData.email}
-        width="40rem"
+        width="30rem"
       >
         Correo electronico
       </Input>
@@ -107,7 +107,7 @@ export default function Form() {
         type="text"
         onChange={handleChange}
         value={registerData.phoneNumber}
-        width="40rem"
+        width="30rem"
       >
         Telefono
       </Input>
@@ -125,7 +125,7 @@ export default function Form() {
         type={showPassword ? "text" : "password"}
         onChange={handleChange}
         value={registerData.password}
-        width="40rem"
+        width="30rem"
       >
         Ingrese su contraseña
       </Input>
@@ -143,7 +143,7 @@ export default function Form() {
         label="Confirme su contraseña"
         onChange={handleChange}
         value={registerData.confirmPassword}
-        width="40rem"
+        width="30rem"
       >
         Confirme su contraseña
       </Input>

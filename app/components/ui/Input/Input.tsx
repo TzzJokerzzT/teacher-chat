@@ -18,7 +18,7 @@ const CustomFormControl = styled(FormControl)<{ width: string | undefined }>(
         borderColor: "gray",
       },
       "&:hover fieldset": {
-        borderColor: "blue",
+        borderColor: "#3740EC",
       },
       "&.Mui-focused fieldset": {
         borderColor: "#025a97",
@@ -36,7 +36,7 @@ const CustomLabel = styled(InputLabel)(({ theme }) => ({
 
 const CustomHelperText = styled(FormHelperText)(({ theme }) => ({
   color: "gray",
-  margin: "0.5rem 0",
+  margin: "0",
   height: "1rem",
 }));
 
@@ -64,7 +64,7 @@ export default function Input({
         label={label}
         required={required}
       />
-      <CustomHelperText>{helperText}</CustomHelperText>
+      {helperText && <CustomHelperText>{helperText}</CustomHelperText>}
     </CustomFormControl>
   );
 }

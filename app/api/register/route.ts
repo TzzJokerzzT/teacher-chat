@@ -18,10 +18,10 @@ export const homeRoutes: Route[] = [
     name: "Suscribete - $5 USD",
   },
 ];
-
 export const loginRoutes: Route[] = [
   {
     path: "/register",
+
     name: "Registro",
   },
   {

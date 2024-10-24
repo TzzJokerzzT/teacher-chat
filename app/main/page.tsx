@@ -1,3 +1,5 @@
+import AppPage from "@/view/AppPage";
+
 export default function Page() {
-  return <h1>BIENVENIDO</h1>;
+  return <AppPage />;
 }

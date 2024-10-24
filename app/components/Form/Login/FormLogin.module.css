@@ -79,3 +79,11 @@
     opacity: 1;
   }
 }
+
+@media (500px > width < 750px) {
+  .login_container {
+    & img {
+      display: none;
+    }
+  }
+}
